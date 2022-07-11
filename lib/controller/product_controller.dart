@@ -6,7 +6,7 @@ import '../model/model/model.dart';
 class ProductController extends GetxController {
   var isLoading = true.obs;
   var tab = 'All Products'.obs;
-  var allProducts;
+  ResponseModel? allProducts;
   Rx<List<ProductModel>> productList = Rx<List<ProductModel>>([]);
 
   @override
@@ -20,7 +20,7 @@ class ProductController extends GetxController {
       isLoading(true);
       allProducts = await ApiDocs.getProducts();
       if (allProducts != null) {
-        productList.value = allProducts.data;
+        productList.value = allProducts!.data;
       }
     } finally {
       isLoading(false);
@@ -30,9 +30,9 @@ class ProductController extends GetxController {
   void search(String searchTerm) async {
     List<ProductModel> searchedList = [];
     if (searchTerm.isEmpty) {
-      searchedList = allProducts.data;
+      searchedList = allProducts!.data;
     } else {
-      searchedList = allProducts.data
+      searchedList = allProducts!.data
           .where((product) =>
               product.name!.toLowerCase().contains(searchTerm.toLowerCase()) ||
               product.categoryDetails!.name!

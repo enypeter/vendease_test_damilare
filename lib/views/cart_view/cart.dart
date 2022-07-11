@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:vendease_text/core/app_colors.dart';
-
 import '../../controller/cart_controller.dart';
 import '../../core/consts.dart';
-import '../widgets/divider.dart';
 import '../widgets/text_box.dart';
 import 'cart_card.dart';
 import 'cart_checkout_card.dart';
@@ -14,6 +12,8 @@ class CartsScreen extends StatelessWidget {
   final panelController = PanelController();
   final searchController = TextEditingController();
   final CartController cartController = Get.put(CartController());
+
+   CartsScreen({Key? key}) : super(key: key);
 
   sumOfProducts(list) => list.reduce((a, b) => a + b);
 

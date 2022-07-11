@@ -143,7 +143,7 @@ class HomeView extends StatelessWidget {
               ),
               smallVerticalSpacing(),
 
-              Container(
+              SizedBox(
                   height: 150,
                   child: ListView.separated(
                       padding: const EdgeInsets.only(left: SIDE_PADDING),
@@ -260,6 +260,8 @@ class HomeView extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 2),
       height: 146,
       width: 128,
+      decoration: BoxDecoration(
+          color: LIGHT_BLUE, borderRadius: BorderRadius.circular(10)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -274,8 +276,6 @@ class HomeView extends StatelessWidget {
           )
         ],
       ),
-      decoration: BoxDecoration(
-          color: LIGHT_BLUE, borderRadius: BorderRadius.circular(10)),
     );
   }
 

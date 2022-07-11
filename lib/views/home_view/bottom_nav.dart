@@ -46,14 +46,14 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    final _kTabPages = <Widget>[
+    final kTabPages = <Widget>[
      const HomeView(),
       Container(),
        ProductScreen(),
       Container(),
       Container(),
     ];
-    final _kBottmonNavBarItems = <BottomNavigationBarItem>[
+    final kBottmonNavBarItems = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
           icon: bottomNavIcon(HOME),
           label: 'Home',
@@ -76,13 +76,13 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
           label: 'More',
           activeIcon: bottomNavIcon(DELIVERY,color: PRIMARY_COLOR)),
     ];
-    assert(_kTabPages.length == _kBottmonNavBarItems.length);
+    assert(kTabPages.length == kBottmonNavBarItems.length);
     final bottomNavBar = BottomNavigationBar(
       backgroundColor: WHITE,
       elevation: 0,
       selectedLabelStyle: const TextStyle(fontFamily:'Gilroy',fontWeight: FontWeight.w500,color:PRIMARY_COLOR,fontSize: 10),
       unselectedLabelStyle: const TextStyle(fontFamily:'Gilroy',fontWeight: FontWeight.w500,fontSize: 10),
-      items: _kBottmonNavBarItems,
+      items: kBottmonNavBarItems,
       currentIndex: _currentTabIndex,
       type: BottomNavigationBarType.fixed,
       onTap: (int index) {
@@ -92,10 +92,9 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
       },
     );
     return WillPopScope(
-
       onWillPop: shouldExit,
       child: Scaffold(
-        body: _kTabPages[_currentTabIndex],
+        body: kTabPages[_currentTabIndex],
         bottomNavigationBar: bottomNavBar,
       ),
     );
